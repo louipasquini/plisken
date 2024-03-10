@@ -1,21 +1,22 @@
-echo "class "$2":
-  def __init__(self,argument):
-    argument: str = argument" >> src/models.py
+echo "class "$2"(SQLModel, table=True):
+  id: Optional[int] = FIeld(primary_key=True, default=None, index=True)
+  date: datetime = Field(default_factory=datetime.now)
+" >> src/models.py
 
-echo "class "$2"Out:
-  def __init__(self,argument):
-    argument: str = argument
+echo "class "$2"Out(BaseModel):
+  id: int
+  date: datetime
 
-class "$2"In:
-  def __init__(self,argument):
-    argument: str = argument" > src/serializers.py
+class "$2"In(BaseModel):
+  id: int
+  date: datetime" >> src/serializers.py
 
-echo "from src.models import "$2"" >> src/core.py
+echo "from src.models import "$2"" | cat - src/core.py > temp && mv temp src/core.py
 
-echo "from src.serializers import "$2"Out, "$2"In" >> src/api.py
+echo "from src.serializers import "$2"Out, "$2"In" | cat - src/api.py > temp && mv temp src/api.py
 
 black -l 79 src tests
 
 isort --profile=black -m 3 src/
 
-isodr --profile=black -m 3 tests/
+isort --profile=black -m 3 tests/

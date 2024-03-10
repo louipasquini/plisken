@@ -1,5 +1,5 @@
-echo "def "$2"():
-  pass" >> src/core.py
+echo "def "$2"() -> bool:
+  return True" >> src/core.py
 
 echo "from src.core import "$2"" >> src/api.py
 
