@@ -106,9 +106,9 @@ isort --profile=black -m 3 tests/' > "$2"/new_model.sh
 echo 'echo "def "$2"() -> bool:
   return True" >> src/core.py
 
-echo "from src.core import "$2"" >> src/api.py
+echo "from src.core import "$2"" | cat - src/api.py > temp && mv temp src/api.py
 
-echo "from src.core import "$2"" >> src/cli.py
+echo "from src.core import "$2"" | cat - src/cli.py > temp && mv temp src/cli.py
 
 echo "from src.core import "$2"
 
@@ -169,7 +169,7 @@ sniffio==1.3.1
 starlette==0.36.3
 typer==0.9.0
 typing_extensions==4.10.0
-" > "$2"/requirements.txt
+" > requirements.txt
 
 echo "Requirements: OK"
 

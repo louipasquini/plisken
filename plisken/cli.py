@@ -35,4 +35,5 @@ def install_dependencies():
 
 @main.command("add")
 def add_dependency(dependency_name: str):
+  """Add dependencies"""
   os.system(f"pip install {dependency_name} && pip freeze > requirements.txt")
