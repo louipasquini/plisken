@@ -65,7 +65,7 @@ isort --profile=black -m 3 src/
 
 isort --profile=black -m 3 tests/' > "$2"/new_function.sh
 
-touch "$2"/test_functional_api.py "$2"/test_functional_cli.py "$2"/test_core.py
+touch "$2"/tests/test_functional_api.py "$2"/tests/test_functional_cli.py "$2"/tests/test_core.py
 
 cd "$2"
 
