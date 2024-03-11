@@ -1,4 +1,4 @@
-mkdir "$2" "$2"/src "$2"/tests
+mkdir "$2" "$2"/src "$2"/tests "$2"/.plisken
 
 echo "Directory: OK"
 
@@ -101,7 +101,7 @@ black -l 79 src tests
 
 isort --profile=black -m 3 src/
 
-isort --profile=black -m 3 tests/' > "$2"/new_model.sh
+isort --profile=black -m 3 tests/' > "$2"/.plisken/new_model.sh
 
 echo 'echo "def "$2"() -> bool:
   return True" >> src/core.py
@@ -120,7 +120,7 @@ black -l 79 src tests
 isort --profile=black -m 3 src/
 
 isort --profile=black -m 3 tests/
-' > "$2"/new_function.sh
+' > "$2"/.plisken/new_function.sh
 
 touch "$2"/tests/test_core.py
 
@@ -155,19 +155,27 @@ echo "Install dynaconf: OK"
 echo "annotated-types==0.6.0
 anyio==4.3.0
 click==8.1.7
+dynaconf==3.2.4
 exceptiongroup==1.2.0
 fastapi==0.110.0
+greenlet==3.0.3
 idna==3.6
+iniconfig==2.0.0
 isort==5.13.2
 markdown-it-py==3.0.0
 mdurl==0.1.2
-numpy==1.26.4
+packaging==24.0
+pluggy==1.4.0
 pydantic==2.6.3
 pydantic_core==2.16.3
 Pygments==2.17.2
+pytest==8.1.1
 rich==13.7.1
 sniffio==1.3.1
+SQLAlchemy==2.0.28
+sqlmodel==0.0.16
 starlette==0.36.3
+tomli==2.0.1
 typer==0.9.0
 typing_extensions==4.10.0
 " > requirements.txt

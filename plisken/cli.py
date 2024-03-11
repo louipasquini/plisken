@@ -19,14 +19,14 @@ def create_model(model_name: str):
   """Create a new model"""
   this_path = os.path.dirname(os.path.abspath(__file__))
   path = os.getcwd()
-  subprocess.run(["bash",path+"/new_model.sh",path,model_name])
+  subprocess.run(["bash",path+"/.plisken/new_model.sh",path,model_name])
 
 @main.command("function")
 def create_function(function_name: str):
   """Create a new function"""
   this_path = os.path.dirname(os.path.abspath(__file__))
   path = os.getcwd()
-  subprocess.run(["bash",path+"/new_function.sh",path,function_name])
+  subprocess.run(["bash",path+"/.plisken/new_function.sh",path,function_name])
 
 @main.command("install")
 def install_dependencies():
