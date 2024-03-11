@@ -158,6 +158,7 @@ click==8.1.7
 exceptiongroup==1.2.0
 fastapi==0.110.0
 idna==3.6
+isort==5.13.2
 markdown-it-py==3.0.0
 mdurl==0.1.2
 numpy==1.26.4

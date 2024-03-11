@@ -4,9 +4,10 @@ click==8.1.7
 exceptiongroup==1.2.0
 fastapi==0.110.0
 idna==3.6
+isort==5.13.2
 markdown-it-py==3.0.0
 mdurl==0.1.2
-numpy==1.26.4
+-e git+https://github.com/louipasquini/plisken@dff585b13310645ad5f24bbebcf3320d898b60f3#egg=plisken
 pydantic==2.6.3
 pydantic_core==2.16.3
 Pygments==2.17.2
