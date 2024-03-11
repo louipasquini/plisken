@@ -1,6 +1,6 @@
 import os
 
-from dynaconf import dynaconf
+from dynaconf import Dynaconf
 
 settings = Dynaconf(
   envvar_prefix="PLISKEN",

@@ -70,10 +70,10 @@ echo "__main__.py: OK"
 
 echo 'import os
 
-from dynaconf import dynaconf
+from dynaconf import Dynaconf
 
 settings = Dynaconf(
-  envvar_prefix='"$2"',
+  envvar_prefix="'"$2"'",
   root_path=os.path.dirname(__file__),
   settings_files=["settings.toml"]
 )' > "$2"/src/config.py
@@ -81,7 +81,7 @@ settings = Dynaconf(
 echo "Config.py: OK"
 
 echo 'echo "class "$2"(SQLModel, table=True):
-  id: Optional[int] = FIeld(primary_key=True, default=None, index=True)
+  id: Optional[int] = Field(primary_key=True, default=None, index=True)
   date: datetime = Field(default_factory=datetime.now)
 " >> src/models.py
 
